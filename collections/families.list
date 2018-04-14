@@ -1,33 +1,40 @@
-{.repeated section items}
+<div class="families-wrapper">
+  {.repeated section items}
 
-  <!--WRAPPER-->
+    <!--WRAPPER-->
 
-  <article id="post-{id}" class="{@|item-classes}" data-item-id="{id}">
+    <div id="family-{id}" class="family {@|item-classes}" data-item-id="{id}">
 
-    <!--POST TILE-->
-
-    <h1 class="title" data-content-field="title">
-      {.passthrough?}
-        <a href="{sourceUrl}" target="_blank">{title}</a>
+      {.if assetUrl}
+        <img src="{assetUrl}" />
       {.or}
-        <a href="{fullUrl}">{title}</a>
+        <img src="{assetUrl}" />
       {.end}
-    </h1>
 
-    <!--EXCERPT OR BODY-->
+      <h1 class="title" data-content-field="title">{title}</h1>
 
-    {.if excerpt}
-      {excerpt}
-      <a class="link" href="{fullUrl}">Read More</a>
-    {.or}
+      {.if excerpt}
+        <div class="excerpt">
+          {excerpt}
+        </div>
+      {.end}
 
-    <!--MAIN CONTENT-->
-      {body}
+      {.section categories}
+        <div class="categories">
+          {.repeated section @}
+            <span>{@}</span>
+          {.alternates with}, {.end}
+        </div
+      {.end}
 
-    {.end}
+      <h6>How you can help</h6>
+      {.if sourceUrl}
+        <a href="{sourceUrl}">{title}'s List</a>
+      {.end}
 
-  </article>
+    </div>
 
-{.or}
-  No family lists yet.
-{.end}
+  {.or}
+    No family lists yet.
+  {.end}
+</div>
