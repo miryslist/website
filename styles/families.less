@@ -1,3 +1,5 @@
+@muted-dark-red: rgb(153, 25, 11);
+
 .families-wrapper {
 
   display: grid;
@@ -7,10 +9,64 @@
   .family {
     background-color: #eee;
     border-radius: 5px;
-    padding: 1em;
+    padding: 1em 1em 6.5em;
+    position: relative;
 
     img {
       width: 100%;
+    }
+
+    h1.title {
+      margin: 0;
+
+      a {
+        color: @muted-dark-red;
+        text-decoration: underline;
+      }
+    }
+
+    .excerpt {
+      line-height: 1.4em;
+    }
+
+    .categories {
+      font-size: 11px;
+    }
+
+    .help {
+      position: absolute;
+      bottom: 1em;
+      left: 1em;
+      right: 1em;
+
+      h6 {
+        font-size: 14px;
+        margin: 0 0 0.4em;
+      }
+
+      a {
+        display: block;
+        background-color: @muted-dark-red;
+        border-radius: 5px;
+        width: 100%;
+        text-align: center;
+        padding: 0.75em 0;
+        color: white;
+        font-size: 11px;
+        text-transform: uppercase;
+
+        i.fab {
+          font-size: 16px;
+          vertical-align: middle;
+        }
+
+        span {
+          padding: 0 1em;
+          text-decoration: underline;
+          vertical-align: middle;
+        }
+      }
+
     }
   }
 

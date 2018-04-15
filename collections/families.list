@@ -1,17 +1,19 @@
 <div class="families-wrapper">
   {.repeated section items}
 
-    <!--WRAPPER-->
+    <div id="family-{id}" class="family {@|item-classes} {.section categories}{.repeated section @}category-{@|slugify}{.alternates with} {.end}{.end}" data-item-id="{id}">
 
-    <div id="family-{id}" class="family {@|item-classes}" data-item-id="{id}">
+      <a href="{customContent.wishlist}" target="_blank">
+        {.if filename}
+          <img src="{assetUrl}" />
+        {.or}
+          <img src="/assets/images/family-placeholder.jpg" />
+        {.end}
+      </a>
 
-      {.if assetUrl}
-        <img src="{assetUrl}" />
-      {.or}
-        <img src="{assetUrl}" />
-      {.end}
-
-      <h1 class="title" data-content-field="title">{title}</h1>
+      <h1 class="title" data-content-field="title">
+        <a href="{customContent.wishlist}" target="_blank">{title}</a>
+      </h1>
 
       {.if excerpt}
         <div class="excerpt">
@@ -22,15 +24,18 @@
       {.section categories}
         <div class="categories">
           {.repeated section @}
-            <span>{@}</span>
-          {.alternates with}, {.end}
-        </div
+            {@}{.alternates with}, {.end}
+        </div>
       {.end}
 
-      <h6>How you can help</h6>
-      {.if sourceUrl}
-        <a href="{sourceUrl}">{title}'s List</a>
-      {.end}
+      <div class="help">
+        <h6>How can you help?</h6>
+        {.if customContent.wishlist}
+          <a href="{customContent.wishlist}" target="_blank">
+            <i class="fab fa-amazon"></i><span>{title}'s Wishlist</span>
+          </a>
+        {.end}
+      </div>
 
     </div>
 
