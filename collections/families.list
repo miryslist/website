@@ -43,3 +43,6 @@
     No family lists yet.
   {.end}
 </div>
+
+<script type="text/javascript" src="/scripts/vendor/mixitup.min.js"></script>
+<squarespace:script src="families.js" />
