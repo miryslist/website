@@ -1,10 +1,64 @@
 @muted-dark-red: rgb(153, 25, 11);
 
+.intro {
+
+  margin-bottom: 2em;
+
+  h1 {
+    font-size: 48px;
+    margin-bottom: 0;
+    line-height: 1.2em;
+  }
+
+}
+
+.filters {
+  @media only screen and (min-width: 1024px) {
+    width: 200px;
+    float: left;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  .categories {
+    button {
+      display: block;
+      margin-bottom: 0.6em;
+      border: none;
+      border-radius: 5px;
+      width: 100%;
+      text-align: left;
+      background-color: transparent;
+      padding: 0.5em 1em;
+      font-size: 12px;
+
+      .far { font-size: 14px; }
+
+      .fa-square { display: inline-block; margin-right: 0.3em; }
+      .fa-check-square { display: none; }
+
+      &.mixitup-control-active {
+        background-color: @muted-dark-red;
+        color: white;
+
+        .fa-square { display: none; }
+        .fa-check-square { display: inline-block; margin-right: 0.3em; }
+      }
+    }
+  }
+}
+
 .families-wrapper {
 
   display: grid;
   grid-template-columns: 33% 33% 33%;
   grid-gap: 1%;
+
+  @media only screen and (min-width: 1024px) {
+    margin-left: 210px;
+  }
 
   @media only screen and (max-width: 768px) {
     grid-template-columns: 49% 49%;
@@ -36,6 +90,7 @@
     }
 
     .excerpt {
+      font-size: 12px;
       line-height: 1.4em;
     }
 

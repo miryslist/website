@@ -1,13 +1,39 @@
+<div class="intro">
+  <h1>Lists</h1>
+  <p>Each list represents the essential items a family needs to help get their start in their new home. Your generous gifts provide them with comfort that goes way beyond the item itself or the purchase price.</p>
+  <p>We make lists to provide essential supplies to our families once they've been placed into housing. Most families have experienced trauma, high levels of stress and feelings of helplessness for many years. Thank you for putting your attention, energy, and dollars towards helping them!</p>
+</div>
+
+<div class="filters">
+  <h3>Families</h3>
+  {.section collection}
+    <div class="categories">
+      <button data-filter="all">
+        <i class="far fa-square"></i>
+        <i class="far fa-check-square"></i>
+        Show All
+      </button>
+      {.repeated section categories}
+      <button data-toggle=".category-{@|slugify}">
+        <i class="far fa-square"></i>
+        <i class="far fa-check-square"></i>
+        {@}
+      </button>
+      {.end}
+    </div>
+  {.end}
+</div>
+
 <div class="families-wrapper">
   {.repeated section items}
 
-    <div id="family-{id}" class="family {@|item-classes} {.section categories}{.repeated section @}category-{@|slugify}{.alternates with} {.end}{.end}" data-item-id="{id}">
+    <div id="family-{id}" class="family {@|item-classes}" data-item-id="{id}">
 
       <a href="{customContent.wishlist}" target="_blank">
         {.if filename}
-          <img src="{assetUrl}" />
+          <img src="https://res.cloudinary.com/mirys-list/image/fetch/w_300,h_200,c_fill,g_faces/{assetUrl}" />
         {.or}
-          <img src="/assets/images/family-placeholder.jpg" />
+          <img src="/assets/images/family-placeholder.png" />
         {.end}
       </a>
 
@@ -21,12 +47,14 @@
         </div>
       {.end}
 
+      <!--
       {.section categories}
         <div class="categories">
           {.repeated section @}
             {@}{.alternates with}, {.end}
         </div>
       {.end}
+      -->
 
       <div class="help">
         <h6>How can you help?</h6>
@@ -43,6 +71,8 @@
     No family lists yet.
   {.end}
 </div>
+
+<div style="clear:both;"></div> <!-- HACK -->
 
 <script type="text/javascript" src="/scripts/vendor/mixitup.min.js"></script>
 <squarespace:script src="families.js" />
